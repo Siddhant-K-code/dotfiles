@@ -2,8 +2,11 @@
 sudo apt-get install -y
 echo "This Statement is using Gitpod Dotfiles Feature 🧡🙋‍♂️"
 curl -fsSL https://deno.land/x/install/install.sh | sh
-export DENO_INSTALL="/home/gitpod/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+
+target="$HOME/.deno";
+
+printf 'export %s\n' "DENO_INSTALL=$target"\
+                                "PATH=$target/bin:\$PATH" >> $HOME/.bashrc.d/600-deno
 
 
 
